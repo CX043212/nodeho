@@ -1,0 +1,77 @@
+//引入自定义模块
+var app = require('../app');
+//处理错误一个模块  第三方模块
+var debug = require('debug')('express:server');
+//核心模块
+var http = require('http');
+
+//定义端口号
+var port = normalizePort(process.env.PORT || '3000');
+//使用端口号
+app.set('port', port);
+
+//创建服务器
+var server = http.createServer(app);
+
+//绑定端口号
+server.listen(port);
+
+//服务器报错的时候会走onerror这个函数
+server.on('error', onError);
+//绑定成功
+server.on('listening', onListening);
+
+
+//判断端口号的类型
+function normalizePort(val) {
+  //
+  var port = parseInt(val, 10);
+
+  if (isNaN(port)) {
+    // named pipe
+    return val;
+  }
+
+  if (port >= 0) {
+    // port number
+    return port;
+  }
+
+  return false;
+}
+
+
+//报错的函数
+function onError(error) {
+  if (error.syscall !== 'listen') {
+    throw error;
+  }
+
+  var bind = typeof port === 'string'
+    ? 'Pipe ' + port
+    : 'Port ' + port;
+
+  // handle specific listen errors with friendly messages
+  switch (error.code) {
+    case 'EACCES':
+      console.error(bind + ' requires elevated privileges');
+      process.exit(1);
+      break;
+    case 'EADDRINUSE':
+      console.error(bind + ' is already in use');
+      process.exit(1);
+      break;
+    default:
+      throw error;
+  }
+}
+
+
+//输入当前服务器链接的状态
+function onListening() {
+  var addr = server.address();
+  var bind = typeof addr === 'string'
+    ? 'pipe ' + addr
+    : 'port ' + addr.port;
+  debug('Listening on ' + bind);
+}

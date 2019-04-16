@@ -1,0 +1,171 @@
+注册接口
+
+        接口地址：/api/register
+        返回格式：json
+        请求方式：post
+
+        传递的参数
+            名称	   必填	     类型	      说明
+            username    Y        string       用户ID
+            password    Y        string       用户密码
+   
+
+        返回的参数
+            status: true  成功  false  失败
+            info:说明
+
+
+登陆接口
+
+        接口地址：/api/login
+        返回格式：json
+        请求方式：post
+
+        传递的参数
+            名称	   必填	     类型	      说明
+            username    Y        string       用户ID
+            password    Y        string       用户密码
+   
+
+        返回的参数
+            status: true  成功  false  失败
+            info:说明
+
+
+
+公司：
+    logo
+    公司名称
+    公司规模
+    公司简介
+    招聘职位
+
+
+
+   公司列表
+
+        接口地址：/company/companyList
+        返回格式：json
+        请求方式：get
+
+
+        返回的参数
+            status: true  成功  false  失败
+            data:数据
+
+
+
+    新增公司
+
+        接口地址：/company/Addcompany
+        返回格式：json
+        请求方式：post
+
+
+         传递的参数
+            名称	          必填	     类型	      说明
+            companyLogo        Y       string      公司logo
+            companyName        Y       string      公司名称
+            companyScale       Y       string      公司规模
+            companySynopsis    Y       string      公司简介
+            recruitPosition    Y       string      招聘职位
+
+        返回的参数
+            status: true  成功  false  失败
+            info:说明
+
+
+
+
+修改公司信息
+
+   
+
+        接口地址： /company/modifyCompanyInfo
+        返回格式：json
+        请求方式：post
+
+
+         传递的参数
+            名称	          必填	     类型	      说明
+            _id                Y       string       id
+            companyLogo        Y       string      公司logo
+            companyName        Y       string      公司名称
+            companyScale       Y       string      公司规模
+            companySynopsis    Y       string      公司简介
+            recruitPosition    Y       string      招聘职位
+
+        返回的参数
+            status: true  成功  false  失败
+            info:说明
+
+
+
+
+添加职位
+
+        接口地址：/job/addJob
+        返回格式：json
+        请求方式：post
+
+        传递的参数
+            名称	   必填	     类型	      说明
+            jobName     Y        string       职位名称
+            jobPrice    Y        Number       职位薪资
+            jobexp      Y        string       工作经验
+            companyLogo Y        string       公司logo
+            companyName Y        string       公司名称
+
+        返回的参数
+            status: true  成功  false  失败
+            info:说明
+
+
+修改职位
+
+        接口地址：/job/Job
+        返回格式：json
+        请求方式：post
+
+        传递的参数
+            名称	   必填	     类型	      说明
+            jobName     N       string       职位名称
+            jobPrice    N       Number       职位薪资
+            jobexp      N       string       工作经验
+            companyLogo N        string       公司logo
+            companyName N       string       公司名称
+
+        返回的参数
+            status: true  成功  false  失败
+            info:说明
+
+
+删除职位
+
+        接口地址：/job/delJob
+        返回格式：json
+        请求方式：post
+
+        传递的参数
+            名称	   必填	     类型	      说明
+            公司ID      Y         Number      公司ID
+
+        返回的参数
+            status: true  成功  false  失败
+            info:说明
+
+
+获取职位
+
+        接口地址：/job/getJob
+        返回格式：json
+        请求方式：post
+
+        传递的参数
+            名称	   必填	     类型	      说明
+
+        返回的参数
+            status: true  成功  false  失败
+            info:说明
+
+           
